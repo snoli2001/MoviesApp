@@ -1,0 +1,41 @@
+<!--<form class="form-inline mr-auto">-->
+<!--  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+<!--  <button class="btn btn-unique btn-rounded btn-sm my-0" type="submit">Search</button>-->
+<!--</form>-->
+
+<div class="container main-container mt-5 ">
+
+  <div class="row animate__animated animate__bounceIn">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Buscar: </label>
+        <input
+          [(ngModel)]= "search"
+          class="form-control mr-sm-2"
+          type="text"
+          name="search"
+          (keyup.enter)="searchMovie()"
+          placeholder="buscar una pelicula"
+          aria-label="buscar">
+      </div>
+    </div>
+  </div>
+  <div class="row animate__animated animate__fadeIn">
+    <div class="card-columns">
+
+      <div *ngFor="let movie of moviesService.movies" class="card border-dark">
+        <img [src]="movie | movieImage" class="card-img-top" [alt]="movie.original_title">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.title}}</h5>
+          <p class="card-text text-justify">{{ movie.overview | slice:0:250}}...</p>
+          <button [routerLink]="['/movie',movie.id,'search']"
+            type="button" class="btn btn-outline-dark btn-block mb-2 mt-2">
+            Ver mas...
+          </button>
+        </div>
+      </div>
+
+  </div>
+
+</div>
+

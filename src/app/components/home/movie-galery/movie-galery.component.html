@@ -1,0 +1,28 @@
+<section class="inner_content no_pad animate__animated animate__fadeIn animate__slow ">
+  <div class="column_wrapper">
+    <div class="content_wrapper no_bottom_pad wrap">
+      <div class="column">
+        <div class="column_header">
+          <h2 style="margin-left: 5%">{{title}}</h2>
+        </div>
+        <div id="onBillboard_scroller" class="media discover scroller_wrap should_fade is_fading">
+          <div class="column_content flex scroller loaded">
+            <div *ngFor="let movie of movies" class="card style_1" style="margin-right: 10px">
+              <div class="image">
+                <a [routerLink]="['/movie',movie.id,'home']"  class="image">
+                    <img  [src]="[ movie | movieImage]" >
+                </a>
+              </div>
+              <div class="content">
+                <h2>
+                  <a [routerLink]="['/movie',movie.id,'home']">{{movie.title}}</a>
+                </h2>
+                <p>{{movie?.release_date}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

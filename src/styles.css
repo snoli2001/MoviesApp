@@ -1,1 +1,416 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  --lightGrey: 227,227,227;
+  --tmdbDarkBlue: 3,37,65;
+  --tmdbLightBlue: 1,180,228;
+  --tmdbLighterGreen: 192,254,207;
+  --tmdbLightGreen: 30,213,169;
+  --tmdbLogoGreen: 144,206,161;
+  --tmdbLogoOrange: 253,193,112;
+  --tmdbLogoRed: 217,59,99;
+  --accountSilver: 149,149,149;
+  --accountPink: 234,20,140;
+  --accountPurple: 128,91,231;
+  --accountGreen: 1,210,119;
+  --accountTeal: 1,198,172;
+  --accountLightBlue: 1,180,228;
+  --accountBlue: 1,119,210;
+  --accountOrange: 210,119,1;
+  --accountYellow: 210,144,1;
+  --accountRed: 212,2,66;
+  --imageBorderRadius: 8px;
+}
+
+div.media.discover div.card.style_1 div.content div.consensus {
+  position: absolute;
+  top: -19px;
+  left: 10px;
+}
+div.consensus.tight {
+  width: 38px;
+  height: 38px;
+  box-sizing: border-box;
+}
+div.consensus {
+  width: 68px;
+  height: 68px;
+  display: inline-block;
+  transition: transform .2s;
+  transform: scale(1);
+}
+body * {
+  box-sizing: border-box;
+}
+
+user agent stylesheet
+div {
+  display: block;
+}
+
+section.inner_content.no_pad div.column_content.flex.scroller > div:first-child {
+  margin-left: 40px;
+}
+
+section.inner_content div.column_content div.card.style_1 {
+  width: 150px;
+  min-width: 150px;
+}
+
+section.inner_content div.column_content div.card.style_1 {
+  width: 150px;
+  min-width: 150px;
+}
+section.inner_content div.column_content div.card.style_1 {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+  overflow: visible;
+}
+div.media.discover div.card.style_1 {
+  /* margin-left: 30px; */
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  border: 1px solid #e3e3e3;
+  border-radius: var(--imageBorderRadius);
+  overflow: hidden;
+  margin-top: 30px;
+  width: calc(((100vw - 260px - 80px - 64px) / 2));
+}
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(var(--lightGrey), 1);
+  background-color: #fff;
+}
+
+div.scroller_wrap.should_fade.is_fading:after {
+  transition: linear 0.3s;
+  opacity: 1;
+}
+div.scroller_wrap.should_fade:after {
+  content: '';
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  will-change: opacity;
+  pointer-events: none;
+}
+
+div.media {
+  width: auto;
+}
+div.scroller_wrap {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+div.media {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+section.inner_content {
+  max-width: 1300px;
+}
+section.inner_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.no_pad {
+  padding: 0;
+}
+
+div.column_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+section.inner_content.no_pad div.column_wrapper div.content_wrapper.no_bottom_pad {
+  padding-bottom: 0;
+}
+section.inner_content.no_pad div.column_wrapper div.content_wrapper {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+div.column_wrapper div.content_wrapper {
+  max-width: 1300px;
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+div.content_wrapper.wrap {
+  flex-wrap: wrap;
+}
+.no_bottom_pad {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+section.inner_content div.column_content.flex.scroller.loaded {
+  min-height: 0;
+}
+section.inner_content div.column_content.flex.scroller {
+  width: 100%;
+  max-width: 1300px;
+  min-height: 355px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  transition: height .5s linear;
+
+}
+section.inner_content div.column_content.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+div.column_wrapper div.column {
+  width: 100%;
+}
+
+section.inner_content div.column_content.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+section.inner_content div.column_content div.card.style_1 div.content {
+  padding-bottom: 0;
+}
+div.media.discover div.card.style_1 div.content {
+  width: 100%;
+  padding: 26px 10px 12px 10px;
+  position: relative;
+  white-space: normal;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+div.media.discover div.card.style_1 div.content div.consensus {
+  position: absolute;
+  top: -19px;
+  left: 10px;
+}
+div.consensus.tight {
+  width: 38px;
+  height: 38px;
+  box-sizing: border-box;
+}
+div.consensus {
+  width: 68px;
+  height: 68px;
+  display: inline-block;
+  transition: transform .2s;
+  transform: scale(1);
+}
+div.media.discover div.card div.consensus div.outer_ring {
+  margin-right: 0;
+}
+div.card div.consensus.tight div.outer_ring {
+  width: 38px;
+  height: 38px;
+  padding: 2px;
+}
+div.consensus div.outer_ring {
+  display: inline-block;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: #081c22;
+}
+
+div.consensus .user_score_chart {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+section.inner_content.no_pad div.column_header {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+section.inner_content div.column_header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+section.inner_content div.media.discover div.column_content div.card.style_1 div.image {
+  border-radius: var(--imageBorderRadius);
+  width: 100%;
+  min-height: calc(150px * 1.5);
+  height: calc(150px * 1.5);
+  background: #dbdbdb;
+  overflow: hidden;
+}
+/*@media only screen and (min-width: 1040px){*/
+/*div.media.discover div.card.style_1 div.image {*/
+/*  width: calc(((100vw  80px  260px  128px) / 4));*/
+/*  height: calc((((100vw - 80px - 260px - 128px) / 4)) * 1.5);*/
+/*  max-width: 208px;*/
+/*  max-height: calc(208px * 1.5);*/
+/*}*/
+/*  @media only screen and (min-width: 900px)*/
+/*  div.media.discover div.card.style_1 div.image {*/
+/*    width: calc(((100vw - 80px - 260px - 96px) / 3));*/
+/*    height: calc((((100vw - 80px - 260px - 96px) / 3)) * 1.5);*/
+/*  }*/
+/*    div.media.discover div.card.style_1 div.image {*/
+/*      width: calc(((100vw - 80px - 260px - 64px) / 2));*/
+/*      height: calc((((100vw - 80px - 260px - 64px) / 2)) * 1.5);*/
+/*    }*/
+/*  }*/
+/*}*/
+div.media.discover div.card.style_1 div.image div.wrapper a.image {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+div.media.discover div.card.style_1 div.image img {
+  width: 100%;
+  height: 100%;
+}
+div.consensus .user_score_chart {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+div.consensus .user_score_chart .percent {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.card div.consensus.tight .user_score_chart .percent .icon {
+  padding-top: 1px;
+  padding-left: 1px;
+  font-size: 0.6em;
+}
+div.consensus .user_score_chart .percent .icon {
+  color: #fff;
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'Consensus' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+div.media.discover div.card.style_1 div.content h2 {
+  font-size: 1em;
+  margin: 0;
+  width: 100%;
+  word-wrap: normal;
+  overflow-wrap: break-word;
+}
+h2, h3 {
+  margin: 0;
+}
+h2 {
+  font-size: 1.5em;
+  margin: 0 0 4px 0;
+  font-weight: 600;
+}
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+div.media.discover div.card.style_1 div.content a {
+  font-weight: 700;
+  color: #000;
+}
+div.media.discover div.card.style_1 div.content a:hover {
+  font-weight: 700;
+  color: #353333;
+  text-decoration: none;
+}
+
+div.media.discover div.card.style_1 div.content p {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  color: rgba(0,0,0,0.6);
+}
+div.media.discover div.card.style_1 div.hover {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  width: 100%;
+  height: 100%;
+  border-radius: var(--imageBorderRadius);
+  z-index: 5;
+  transition: linear .1s;
+  opacity: 0;
+}
+
+

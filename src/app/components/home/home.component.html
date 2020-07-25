@@ -1,0 +1,17 @@
+
+
+  <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn animate__slow">
+    <div class="container">
+      <h1 class="display-4">MoviesApp</h1>
+      <p class="lead">Encuentra tu película<br>
+        <small>Hecho por Sebastián Noli, usando themoviedb.</small></p>
+    </div>
+  </div>
+
+  <app-movie-galery [movies]="moviesInBillboard" title="En cartelera"></app-movie-galery>
+  <app-movie-galery [movies]="popularMovies" title="Los más populares"></app-movie-galery>
+  <app-movie-galery [movies]="topRated" title="Los más valorados"></app-movie-galery>
+  <app-movie-galery [movies]="popularMoviesKids" title="Populares entre los pequeños" ></app-movie-galery>
+
+  <div class="mb-5"></div>
+

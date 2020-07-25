@@ -1,0 +1,153 @@
+
+<div *ngIf="loading ===true">
+  <div class="mt-5" align="center">
+    <h2>Cargando</h2>
+    <div class="loader loader--style1" title="0">
+      <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+  <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+    s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+    c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+        <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+    C22.32,8.481,24.301,9.057,26.013,10.047z">
+    <animateTransform attributeType="xml"
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 20 20"
+                      to="360 20 20"
+                      dur="0.5s"
+                      repeatCount="indefinite"/>
+    </path>
+  </svg>
+    </div>
+    <p>Espere porfavor</p>
+  </div>
+</div>
+
+<div *ngIf="movie && loading === false"
+      class=" container main.container mt-3 animate__animated animate__fadeInDown ">
+  <h1 class="mb-4">{{movie.title}}</h1>
+  <div class="row">
+    <div class="col-md-5">
+      <div *ngIf="movie.backdrop_path != null ">
+      <img [src]="url + movie.backdrop_path" class="rounded img-fluid">
+      </div>
+      <div *ngIf="movie.backdrop_path === null ">
+        <img [src]="movie |movieImage" class="rounded img-fluid">
+      </div>
+    </div>
+
+    <div class="col-md-7">
+        <h3>Sinopsis</h3>
+      <hr>
+      <p class="text-justify">
+        {{movie.overview}}
+      </p>
+      <p class="mt-5">
+        <strong>Titulo Original: </strong>{{movie.original_title}}
+      </p>
+      <p class="mt-2">
+        <span class="badge badge-warning "style="color: #474645">Popularidad <i class="fa fa-star"></i> : <span>{{movie.popularity/10 | number: '.0-0'}}/10</span></span>
+      </p>
+
+      <p class="mt-2">
+        <span class="badge badge-light "style="color: #474645">fecha de lanzamiento : <span>{{movie.release_date}}</span></span>
+      </p>
+
+      <p class="mt-2">
+        <button *ngIf="valid" class="btn btn-outline-primary" type="button"
+                data-toggle="modal" data-target="#staticBackdrop"
+           style="width: 120px;height: 32px; font-size: 14px" (click)="player?.target.playVideo()">
+          <i class="fa fa-film"></i>   &nbsp;Ver trailer</button>
+        <span *ngIf="!valid" class="badge badge-light "style="color: #474645">Trailer no econtrado</span>
+
+        <button class="btn btn-outline-danger ml-2"  type="button" [routerLink]="['/'+returnTo]"
+           style=" width: 100px;height: 32px; font-size: 14px"><i class="fa fa-arrow-left"></i>  Regresar</button>
+
+      </p>
+    </div>
+
+  </div>
+
+  <hr>
+</div>
+<!--modal-->
+<div class="modal fade animate__animated animate__backInUp" id="staticBackdrop"
+     data-backdrop="static" data-keyboard="false"
+     tabindex="-1" role="dialog"
+     aria-labelledby="staticBackdropLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{movie?.title}}</h5>
+        <button type="button" (click)="stopVideo()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<!--        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+        <div class="embed-responsive embed-responsive-16by9" >
+<!--          <iframe  id="videoPlayer"-->
+<!--                  class="embed-responsive-item"-->
+<!--                  allowfullscreen-->
+<!--                  [src]=" videoUrl | domseguro">-->
+
+<!--          </iframe>-->
+          <youtube-player class="rounded embed-responsive-item" [videoId]="video"
+                          (ready)="savePlayer($event)"
+                          (change)="onStateChange($event)" ></youtube-player>
+        </div>
+      </div>
+      <div class="modal-footer ">
+          <div style="margin-right: 5%">
+            <button type="button" class="btn btn-success mr-2"
+                    (click)="player.target.playVideo()"><i class="fa fa-play"></i></button>
+
+            <button type="button" class="btn btn-danger mr-2"
+                     (click)="player.target.pauseVideo()"><i class="fa fa-pause"></i></button>
+
+            <button type="button" class="btn btn-primary mr-2"
+                    (click)="player.target.setVolume(player.target.getVolume()+5)" ><i class="fa fa-volume-up"></i></button>
+            <button type="button" class="btn btn-dark "  (click)="player.target.setVolume(player.target.getVolume()-5)" ><i class="fa fa-volume-down"></i></button>
+
+          </div>
+
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="stopVideo()"><i class="fa fa-times"></i> Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--recomended-->
+
+<section *ngIf="recommended?.length != 0 && loading === false" class="inner_content no_pad animate__animated animate__fadeIn animate__slow mb-5">
+  <div class="column_wrapper">
+    <div class="content_wrapper no_bottom_pad wrap">
+      <div class="column">
+        <div class="column_header">
+          <h2 style="margin-left: 5%">Recomendados</h2>
+        </div>
+        <div id="onBillboard_scroller" class="media discover scroller_wrap should_fade is_fading">
+          <div class="column_content flex scroller loaded">
+            <div *ngFor="let movie of recommended" class="card style_1" style="margin-right: 10px">
+              <div class="image">
+                <a type="button" (click)="reloadMoviePage(movie.id)" class="image">
+                  <img  [src]="[ movie | movieImage]" >
+                </a>
+              </div>
+              <div class="content">
+                <h2>
+                  <a type="button" (click)="reloadMoviePage(movie.id)">{{movie.title}}</a>
+                </h2>
+                <p>{{movie?.release_date}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

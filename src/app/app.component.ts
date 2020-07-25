@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MoviesService} from "./services/movies.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movieApp';
+  moviesArray: any= [];
+  constructor(public moviesService: MoviesService) {
+
+
+
+    moviesService.getPopularKids().subscribe();
+
+  }
+
 }
